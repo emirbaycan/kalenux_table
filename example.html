@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <link rel="preload" href="/css/kalenux_table.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/plugins/airdatepicker/css/datepicker.min.css">
+    <link href="/css/select.css" rel="stylesheet">
+    <link href="/css/onoff.css" rel="stylesheet">
+    <link href="/css/image.css" rel="stylesheet">
+    <link href="/page.bot.css" rel="stylesheet">
+    <title>Kalenux Panel</title>
+</head>
+
+<body class="preload">
+    <div class="menu">
+        <div class="menu-outer">
+            <div class="menu-inner">
+                <div class="menu-bg"></div>
+                <div class="menu-right">
+                    <div class="mr-top">
+                        <div class="table-title">
+                            <p>Kalenux Panel</p>
+                        </div>
+                    </div>
+                    <div class="table-menu">
+                        <div class="table-inner">
+                            <div class="table-header">
+                                <div class="table-filters" id="table_filters"
+                                    data-filters="table_show,table_date,table_search">
+                                    <div class="filter-holder">
+                                        <p>Search</p>
+                                        <div class="table-search">
+                                            <input class="table-input table-filter" data-type="search"
+                                                data-name="search" id="table_search" placeholder="Search in all contents.."
+                                                autocomplete="off">
+                                            <button class="table-search-button" onclick="setNav('1')"><Search></Search></button>
+                                        </div>
+                                    </div>
+                                    <div class="filter-holder">
+                                        <p>Date</p>
+                                        <input class="datepicker-here table-input table-filter" data-type="date"
+                                            data-name="date" data-range="true" data-multiple-dates-separator=" | "
+                                            id="table_date" data-position="bottom left" data-language="tr"
+                                            placeholder="Choose Date Between" type="text" autocomplete="off">
+                                    </div>
+                                    <div class="filter-holder">
+                                        <p>Limit</p>
+                                        <div class="kalenux-select-holder">
+                                            <select class="kalenux-selects table-filter" data-type="select"
+                                                data-name="limit" id="table_show" data-placeholder="Showing">
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="40">40</option>
+                                                <option value="80">80</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-content">
+                                <div class="kalenux-tables" data-order='{"6":0}' data-nav="true"
+                                    data-header="Position,Fullname,Phone,Email,Cover Letter,CV,Date,Actions"
+                                    data-json="applications_data" data-method="get" data-id="item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <kalenux-template id="item">
+        <item class="kt-cell" id="item_+id+">
+            <ul class="kt-cell-inner">
+                <li class="kt-item">+application_type:application_types+</li>
+                <li class="kt-item">+fullname+</li>
+                <li class="kt-item">+phone+</li>
+                <li class="kt-item">+email+</li>
+                <li class="kt-item">+cover_letter+</li>
+                <li class="kt-item">+cv.parseCv+</li>
+                <li class="kt-item">+created_at+</li>
+                <li class="kt-item">+id.getActions+</li>
+            </ul>
+        </item>
+    </kalenux-template>
+    <script src="/application_types.js"></script>
+    <script src="/applications_data.js"></script>
+    <script src="/page.top.js"></script>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/airdatepicker/js/datepicker.min.js"></script>
+    <script src="/plugins/airdatepicker/js/datepicker.tr.js"></script>
+    <script src="/js/templater.js" defer></script>
+    <script src="/js/kalenux_table.js" defer></script>
+    <script src="/js/select.js" defer></script>
+    <script src="/js/checkbox.js" defer></script>
+    <script src="/js/file.js" defer></script>
+    <script src="/js/popup.js" defer></script>
+</body>
+
+</html>
